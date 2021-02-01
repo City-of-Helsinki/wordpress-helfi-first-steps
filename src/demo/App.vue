@@ -14,3 +14,13 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+@use "~hds-design-tokens/lib/all" as hds;
+@import '~@demo/styles/fonts';
+
+body {
+  margin: 0;
+  font-family: hds.$font-default;
+}
+</style>
