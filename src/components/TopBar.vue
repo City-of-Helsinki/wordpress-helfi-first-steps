@@ -2,7 +2,7 @@
   <div :class="$style.component">
     <img :src="$options.logoUrl" :class="$style.logo" />
     <div :class="$style.title">
-      Welcome guide
+      First steps
     </div>
   </div>
 </template>
