@@ -16,7 +16,6 @@ export default {
 </script>
 
 <style lang="scss">
-@use "~hds-design-tokens/lib/all" as hds;
 @import '~@demo/styles/fonts';
 
 body {

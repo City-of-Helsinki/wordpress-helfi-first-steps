@@ -1,6 +1,16 @@
 const path = require('path')
 
 module.exports = {
+  css: {
+    loaderOptions: {
+      sass: {
+        prependData: `
+          @use '~hds-design-tokens/lib/all' as hds;
+          @use '~@/styles/variables' as variables;
+        `
+      }
+    }
+  },
   pages: {
     demo: {
       entry: 'src/demo/main.js',

@@ -18,8 +18,6 @@ export default {
 </script>
 
 <style module lang="scss">
-@use "~hds-design-tokens/lib/all" as hds;
-
 .component {
   display: flex;
   align-items: center;
