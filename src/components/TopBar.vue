@@ -24,7 +24,7 @@ export default {
   display: flex;
   align-items: center;
   padding: hds.$spacing-s;
-  background-color: hds.$color-copper-dark;
+  background-color: hds.$color-bus;
 
   .logo {
     display: inline-block;
