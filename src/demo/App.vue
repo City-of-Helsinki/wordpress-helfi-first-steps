@@ -23,6 +23,7 @@ export default {
 
 <style lang="scss">
 @import '~@demo/styles/fonts';
+@import '~hds-core/lib/base';
 
 body {
   margin: 0;
