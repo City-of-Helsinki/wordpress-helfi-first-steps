@@ -13,6 +13,21 @@
         </strong>
       </p>
     </InfoBanner>
+    <div :class="$style.questionContainer">
+      <QuestionPrompt
+        prompt="1. What is your citizenship?"
+        :options="[{
+          id: '1',
+          label: 'EU/EEA citizen'
+        }, {
+          id: '2',
+          label: 'Non-EU citizen'
+        }, {
+          id: '3',
+          label: 'Nordic citizen'
+        }]"
+      />
+    </div>
   </div>
 </template>
 
@@ -21,3 +36,9 @@ export default {
 
 }
 </script>
+
+<style module lang="scss">
+.questionContainer {
+  padding: hds.$spacing-m hds.$spacing-s;
+}
+</style>
