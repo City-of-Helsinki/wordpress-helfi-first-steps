@@ -1,11 +1,16 @@
 <template>
   <div>
-    <QuestionForm />
+    <QuestionForm
+      :questions="$options.questions"
+    />
   </div>
 </template>
 
 <script>
+import configuration from '@/assets/configuration.json'
+
 export default {
-  name: 'Home'
+  name: 'Home',
+  questions: configuration.questions
 }
 </script>

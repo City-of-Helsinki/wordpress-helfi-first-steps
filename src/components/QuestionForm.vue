@@ -15,17 +15,8 @@
     </InfoBanner>
     <div :class="$style.questionContainer">
       <QuestionPrompt
-        prompt="1. What is your citizenship?"
-        :options="[{
-          id: '1',
-          label: 'EU/EEA citizen'
-        }, {
-          id: '2',
-          label: 'Non-EU citizen'
-        }, {
-          id: '3',
-          label: 'Nordic citizen'
-        }]"
+        :prompt="currentQuestion.prompt"
+        :options="currentQuestion.options"
       />
     </div>
   </div>
@@ -33,7 +24,25 @@
 
 <script>
 export default {
-
+  props: {
+    questions: {
+      type: Array,
+      required: true,
+      validator: questions => {
+        return questions.every(question => {
+          if (!question.prompt || !question.options) return false
+          return question.options.every(option => {
+            return !!option.id && !!option.label
+          })
+        })
+      }
+    }
+  },
+  setup ({questions}) {
+    return {
+      currentQuestion: questions[0]
+    }
+  }
 }
 </script>
 
