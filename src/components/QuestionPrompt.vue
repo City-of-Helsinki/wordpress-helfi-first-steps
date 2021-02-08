@@ -4,7 +4,7 @@
       {{ prompt }}
     </h2>
     <div :class="$style.answers">
-      <AnswerButton v-for="option in options" :key="option.id">
+      <AnswerButton v-for="option in options" :key="option.id" @click.native="$emit('selectOption', option.id)">
         {{ option.label }}
       </AnswerButton>
     </div>

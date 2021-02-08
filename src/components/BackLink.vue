@@ -1,7 +1,7 @@
 <template>
   <a :class="$style.component">
-    <slot/>
     <span :class="$style.icon" />
+    <slot/>
   </a>
 </template>
 
@@ -15,24 +15,25 @@ export default {
 .component {
   display: flex;
   align-items: center;
-  padding: hds.$spacing-s hds.$spacing-m;
   font-weight: bold;
-  color: hds.$color-white;
-  background-color: hds.$color-bus;
+  font-size: hds.$fontsize-body-xl;
+  color: hds.$color-black-30;
   cursor: pointer;
+  user-select: none;
 
   .icon {
     @extend .hds-icon;
     @extend .hds-icon--size-s;
-    @extend .hds-icon--arrow-right;
+    @extend .hds-icon--arrow-left;
 
-    margin-left: auto;
+    margin-right: hds.$spacing-xs;
     transform: translateX(0);
     transition: transform 0.2s ease-in-out;
   }
 
   &:hover .icon {
-    transform: translateX(5px);
+    transform: translateX(-5px);
   }
 }
+
 </style>

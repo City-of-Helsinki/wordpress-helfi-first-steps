@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <InfoBanner>
+  <div :class="$style.component">
+    <InfoBanner v-if="currentQuestionIndex === 0">
       <p>
         This is a step by step guide to help you understand the immigration
         process. It also explains which public authorities you need to contact
@@ -13,16 +13,31 @@
         </strong>
       </p>
     </InfoBanner>
-    <div :class="$style.questionContainer">
+    <div :class="$style.contentContainer">
+      <QuestionNumber
+        v-if="currentQuestionIndex > 0"
+        :number="currentQuestionIndex + 1"
+        :class="$style.questionNumber"
+      />
       <QuestionPrompt
         :prompt="currentQuestion.prompt"
         :options="currentQuestion.options"
+        @selectOption="onOptionSelected(currentQuestion.id, $event)"
       />
+      <BackLink
+        v-if="currentQuestionIndex > 0"
+        :class="$style.backLink"
+        @click.native="currentQuestionIndex--"
+      >
+        Previous question
+      </BackLink>
     </div>
   </div>
 </template>
 
 <script>
+import {computed, ref} from '@vue/composition-api'
+
 export default {
   props: {
     questions: {
@@ -38,16 +53,40 @@ export default {
       }
     }
   },
-  setup ({questions}) {
+  setup ({questions}, {emit}) {
+    const currentQuestionIndex = ref(0)
+    const currentQuestion = computed(() => {
+      return questions[currentQuestionIndex.value]
+    })
+
     return {
-      currentQuestion: questions[0]
+      currentQuestion,
+      currentQuestionIndex,
+      onOptionSelected
+    }
+
+    function onOptionSelected (questionId, optionId) {
+      emit('setAnswer', {questionId, optionId})
+      if (currentQuestionIndex.value < questions.length - 1) {
+        currentQuestionIndex.value++
+      }
     }
   }
 }
 </script>
 
 <style module lang="scss">
-.questionContainer {
-  padding: hds.$spacing-m hds.$spacing-s;
+.component {
+  .contentContainer {
+    padding: hds.$spacing-s hds.$spacing-s;
+  }
+
+  .questionNumber {
+    margin-bottom: hds.$spacing-5-xl;
+  }
+
+  .backLink {
+    margin-top: hds.$spacing-5-xl;
+  }
 }
 </style>
