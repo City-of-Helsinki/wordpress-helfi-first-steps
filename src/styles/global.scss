@@ -1,0 +1,27 @@
+/**
+ * Global styles. Note that these need to be namespaced inside the root
+ * container, so they do not affect the containing page.
+ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: hds.$font-default;
+  font-weight: bold;
+  margin-block-start: 0;
+  margin-block-end: hds.$spacing-m;
+  line-height: hds.$lineheight-m;
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: hds.$spacing-m;
+  font-size: hds.$fontsize-body-l;
+  line-height: hds.$lineheight-l;
+
+  &:last-child {
+    margin-block-end: 0;
+  }
+}
