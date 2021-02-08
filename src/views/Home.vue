@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello, Welcome Guide.
+    <QuestionForm />
   </div>
 </template>
 
