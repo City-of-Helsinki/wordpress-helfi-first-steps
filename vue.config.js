@@ -7,6 +7,7 @@ module.exports = {
         prependData: `
           @use '~hds-design-tokens/lib/all' as hds;
           @use '~@/styles/variables' as variables;
+          @use '~sass-mq/mq';
         `
       }
     }
