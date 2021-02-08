@@ -2,6 +2,7 @@
   <div>
     <QuestionForm
       :questions="$options.questions"
+      @finish="$router.push({name: 'Result'})"
     />
   </div>
 </template>

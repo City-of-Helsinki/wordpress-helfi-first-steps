@@ -69,6 +69,8 @@ export default {
       emit('setAnswer', {questionId, optionId})
       if (currentQuestionIndex.value < questions.length - 1) {
         currentQuestionIndex.value++
+      } else {
+        emit('finish')
       }
     }
   }
