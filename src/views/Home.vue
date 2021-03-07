@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import configuration from '@/assets/configuration.json'
+import configuration from '@/assets/configuration.yaml'
 
 export default {
   name: 'Home',

@@ -1,0 +1,72 @@
+---
+version: '2021-02-08'
+questions:
+- id: '1'
+  prompt: What is your citizenship?
+  options:
+  - id: '1'
+    label: EU/EEA citizen
+  - id: '2'
+    label: Non-EU citizen
+  - id: '3'
+    label: Nordic citizen
+- id: '2'
+  prompt: What is the purpose of your stay in Finland?
+  options:
+  - id: '1'
+    label: I will study
+  - id: '2'
+    label: I will work
+    checklist:
+      enable:
+      - '3'
+- id: '3'
+  prompt: Are you a construction worker?
+  options:
+  - id: '1'
+    label: No, I am not a construction worker
+  - id: '2'
+    label: Yes, I am a construction worker
+- id: '4'
+  prompt: Do you need to register an address?
+  options:
+  - id: '1'
+    label: No, I don't need to register an address while I study
+  - id: '2'
+    label: Yes, I need to register an address while I study
+- id: '5'
+  prompt: Are you moving alone or with your family?
+  options:
+  - id: '1'
+    label: I am moving alone
+  - id: '2'
+    label: I am moving with my family
+checklist:
+  items:
+  - id: '1'
+    topic: Digital and Population Data Services Agency (maistraatti)
+    heading: Register an address
+    content:
+      html: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare
+        massa eget. Tristique senectus et netus et. Feugiat pretium nibh ipsum consequat
+        nisl vel pretium lectus quam. Nunc consequat interdum varius sit amet. Justo
+        donec enim diam vulputate ut pharetra.
+  - id: '2'
+    topic: Digital and Population Data Services Agency (maistraatti)
+    heading: Apply for a Finnish personal identity code
+    content:
+      html: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare
+        massa eget. Tristique senectus et netus et. Feugiat pretium nibh ipsum consequat
+        nisl vel pretium lectus quam. Nunc consequat interdum varius sit amet. Justo
+        donec enim diam vulputate ut pharetra.</p>"
+  - id: '3'
+    topic: Tax Administration
+    heading: Contact the Tax Administration
+    content:
+      html: "<p>Contact the Tax Administration (international taxation) at International
+        House Helsinki. You need to bring along the following documents:<ul><li>A
+        passport or a valid photo ID</li><li>an employment contract or a business
+        ID (if you are an entrepreneur and if you already have one)</li></ul>Opening
+        hours: Mon–Fri 9:00–16:00</p>"

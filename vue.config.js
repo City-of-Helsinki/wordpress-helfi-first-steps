@@ -25,5 +25,14 @@ module.exports = {
     // Add aliases
     config.resolve.alias
       .set('@demo', path.resolve('src/demo'))
+
+    config.module
+      .rule('yaml')
+      .test(/\.ya?ml?$/)
+      .use('json-loader')
+      .loader('json-loader')
+      .end()
+      .use('yaml-loader')
+      .loader('yaml-loader')
   }
 }
