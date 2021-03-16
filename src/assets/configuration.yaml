@@ -1,72 +1,414 @@
 ---
 version: '2021-02-08'
 questions:
-- id: '1'
+- id: K1
   prompt: What is your citizenship?
   options:
-  - id: '1'
+  - id: EU
     label: EU/EEA citizen
-  - id: '2'
+    next: EU-K2
+  - id: NonEU
     label: Non-EU citizen
-  - id: '3'
+    next: NonEU-K2
+  - id: Nordic
     label: Nordic citizen
-- id: '2'
+    next: Nordic-K2
+- id: EU-K2
+  prompt: How long are you going to stay in Finland?
+  options:
+    - id: A
+      label: A
+      next: EU-K3
+      checklist:
+        enable: ["EU-K2-A"]
+    - id: B
+      label: B
+      next: EU-K3
+      checklist:
+        enable: ["EU-K2-B"]
+- id: EU-K3
   prompt: What is the purpose of your stay in Finland?
   options:
-  - id: '1'
-    label: I will study
-  - id: '2'
-    label: I will work
-    checklist:
-      enable:
-      - '3'
-- id: '3'
-  prompt: Are you a construction worker?
-  options:
-  - id: '1'
-    label: No, I am not a construction worker
-  - id: '2'
-    label: Yes, I am a construction worker
-- id: '4'
-  prompt: Do you need to register an address?
-  options:
-  - id: '1'
-    label: No, I don't need to register an address while I study
-  - id: '2'
-    label: Yes, I need to register an address while I study
-- id: '5'
-  prompt: Are you moving alone or with your family?
-  options:
-  - id: '1'
-    label: I am moving alone
-  - id: '2'
-    label: I am moving with my family
+    - id: A
+      label: A
+      checklist:
+        enable: ["EU-K3-A"]
+    - id: B
+      label: B
+      checklist:
+        enable: ["EU-K3-B"]
+    - id: C
+      label: C
+      checklist:
+        enable: ["EU-K3-C"]
+# - id: '2'
+#   prompt: What is the purpose of your stay in Finland?
+#   options:
+#   - id: '1'
+#     label: I will study
+#   - id: '2'
+#     label: I will work
+#     checklist:
+#       enable:
+#       - '3'
+# - id: '3'
+#   prompt: Are you a construction worker?
+#   options:
+#   - id: '1'
+#     label: No, I am not a construction worker
+#   - id: '2'
+#     label: Yes, I am a construction worker
+# - id: '4'
+#   prompt: Do you need to register an address?
+#   options:
+#   - id: '1'
+#     label: No, I don't need to register an address while I study
+#   - id: '2'
+#     label: Yes, I need to register an address while I study
+# - id: '5'
+#   prompt: Are you moving alone or with your family?
+#   options:
+#   - id: '1'
+#     label: I am moving alone
+#   - id: '2'
+#     label: I am moving with my family
 checklist:
-  items:
-  - id: '1'
-    topic: Digital and Population Data Services Agency (maistraatti)
-    heading: Register an address
-    content:
-      html: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare
-        massa eget. Tristique senectus et netus et. Feugiat pretium nibh ipsum consequat
-        nisl vel pretium lectus quam. Nunc consequat interdum varius sit amet. Justo
-        donec enim diam vulputate ut pharetra.
-  - id: '2'
-    topic: Digital and Population Data Services Agency (maistraatti)
-    heading: Apply for a Finnish personal identity code
-    content:
-      html: "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Morbi tincidunt ornare
-        massa eget. Tristique senectus et netus et. Feugiat pretium nibh ipsum consequat
-        nisl vel pretium lectus quam. Nunc consequat interdum varius sit amet. Justo
-        donec enim diam vulputate ut pharetra.</p>"
-  - id: '3'
-    topic: Tax Administration
-    heading: Contact the Tax Administration
-    content:
-      html: "<p>Contact the Tax Administration (international taxation) at International
-        House Helsinki. You need to bring along the following documents:<ul><li>A
-        passport or a valid photo ID</li><li>an employment contract or a business
-        ID (if you are an entrepreneur and if you already have one)</li></ul>Opening
-        hours: Mon–Fri 9:00–16:00</p>"
+- id: EU-K2-A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        EU citizens have the same rights as Finnish citizens to work, study
+        and start a business in Finland. Therefore, they do not need a
+        residence permit.
+      </p>
+
+      <p>
+        As an EU citizen, you can stay and work freely in Finland for up to
+        three months with only a valid identity card or passport.
+      </p>
+
+      <p>
+        You will need a tax card from the Tax Administration (<a
+        href="https://www.vero.fi/">Vero.fi</a>), if you plan on working.
+      </p>
+- id: EU-K2-B
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        EU citizens have the same rights as Finnish citizens to work, study
+        and start a business in Finland. Therefore, they do not need a
+        residence permit. If you plan to stay in Finland for more than three
+        months, however, you must register your right of residence with the
+        Finnish Immigration Service (<a
+        href="https://migri.fi/etusivu">Migri.fi</a>).
+      </p>
+
+      <p>
+        The application must be submitted within three months of the day of
+        your arrival, at the latest. To complete the registration, you must
+        book an appointment and visit a Finnish Immigration Service service
+        point. The immigration authorities will ask you at this time to prove
+        that you can earn your own livelihood.
+      </p>
+
+      <p>
+        After this, you need to register your municipality of residence with
+        the population register (Dvv.fi). Once you have registered in person
+        with these two authorities, you will receive a personal identity code.
+        This means you will be considered a Helsinki resident and be entitled
+        to municipal services.
+      </p>
+- id: EU-K3-A
+  topic:
+  heading:
+  content:
+    html: >-
+      p>
+        You will need a tax card from the Tax Administration (Vero.fi), if you
+        plan on working. To receive a tax card, you must bring your employment
+        contract, proof of completed EU registration, and a valid passport or
+        photo ID to the tax office.
+      </p>
+
+      <p>
+        In order to get a tax card, you will also need a Finnish personal
+        identity code or a temporary identity code. If you have not yet
+        received one from the Finnish Immigration Service (Migri.fi ) or the
+        population register (Dvv.fi), you can apply for one at the tax office.
+      </p>
+- id: EU-K3-B
+  topic:
+  heading:
+  content:
+    html: >-
+      p>
+        EU citizens may stay in Finland for up to 90 days as jobseekers without needing to register
+        with employment services. After this, they must register as a jobseeker at their local TE
+        office (Te-palvelut.fi).
+      </p>
+
+      <p>
+        You will need a tax card from the Tax Administration (Vero.fi) and a Finnish personal
+        identity code, if you plan on working in Finland.
+      </p>
+
+      <p>
+        If the Finnish Immigration Service registers your right of residence, you will automatically be
+        assigned a Finnish personal identity code, but you can also get one at the population register
+        (Dvv.fi) or the Tax Administration (Vero.fi). You will be asked to present your employment
+        contract, proof of completed EU registration, and a valid passport or photographic ID card to
+        the tax office.
+      </p>
+- id: EU-K3-C
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If you have come to Helsinki to study as an EU citizen, you must show
+        proof of admission to a Finnish learning institution when registering
+        your right of residence with the Finnish Immigration Service
+        (Migri.fi).
+      </p>
+
+      <p>
+        Please note that if your only reason for moving to Finland is to
+        study, you will likely not be eligible for state-supported social
+        benefits, as you will be considered a temporary resident. See the
+        state benefits agency Kela.fi for more information.
+      </p>
+- id: EU-K4-A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If you are planning to work or start a business while you study, you will need to apply for a
+        tax card from the Tax Administration (Vero.fi). If you work in construction, you also need a
+        tax number.
+      </p>
+      <p>
+        If you do not have a personal identity number in Finland, the Tax Administration can supply
+        you with a temporary identity code for tax card purposes. You will need to present a signed
+        employment contract, proof of registration, and a valid passport or photo ID card for this.
+      </p>
+- id: EU-K5-B
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        Family members of citizens of EU countries have the right to move to
+        Finland to be with their family. If your family members are also
+        citizens of EU countries, they must register their right of residence
+        with the Finnish Immigration Service (Migri.fi). The registration
+        application must be submitted within three months of the day of
+        arrival at the latest.
+      </p>
+
+      <p>
+        If your family members are citizens of non-EU countries, they must
+        apply for a <a
+        href="https://migri.fi/en/residence-card-for-family-members">Residence
+        card for a family member of an EU citizen</a>. Please note that as a
+        rule, Finnish law defines family as the nuclear family, so unless you
+        can prove that for example your parents or siblings are solely
+        dependent on your care, they will likely not be granted a residence
+        permit based on this kind of family tie.
+      </p>
+
+      <p>
+        Family members who are granted a right of residence by the immigration
+        authorities must then register their municipality of residence with
+        the population register (Dvv.fi ). After this, they will receive a
+        personal identity code. This means they will be considered Helsinki
+        residents and be entitled to municipal services.
+      </p>
+- id: EU-K6-A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If you are under 18 years old, you must have written consent from your
+        guardian(s) to move to Finland. A notary public or other comparable
+        authority must confirm this written consent document.
+      </p>
+
+      <p>
+        You must submit this proof of consent to the Finnish Immigration
+        Service (Migri.fi) when you register your right of residence. The
+        registration application must be submitted within three months of the
+        day of arrival at the latest.
+      </p>
+- id: NonEU-K2-A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        Citizens of non-EU countries who visit Finland for fewer than 90 days
+        (as a tourist, visiting family, or on business) need a visa, unless
+        they are citizens of a visa-exempt country. Check the foreign ministry
+        website (Um.fi) for more information on different visa requirements.
+      </p>
+
+      <p>
+        If you plan to work in Finland, you may need a residence permit even if your stay will be
+        shorter than 90 days. Citizens of non-EU countries who plan to stay for more than 90 days
+        must apply for a residence permit. See the Finnish Immigration Service (Migri.fi) for more
+        information.
+      </p>
+
+- id: NonEU-K2-B
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        Citizens of non-EU countries who plan to come to Finland for more than 90 days must first
+        apply for a residence permit from the Finnish Immigration Service (Migri.fi). It is not
+        possible to apply for a residence permit on another person’s behalf.
+      </p>
+      <p>
+        The type of residence permit you need to apply for depends on your reason for coming to
+        Finland. Residence permit applications are different if you plan to 1) work in Finland, 2) be
+        with a family member in Finland, 3) study in Finland, 4) remigrate to Finland, or 5) come to
+        Finland on other grounds.
+      </p>
+      <p>
+        You can apply for a residence permit online at EnterFinland.fi, but within three months of
+        submitting the application, you will need to visit a Finnish mission (embassy or consulate) in
+        person to confirm your identity and present original copies of your application appendices.
+        Check if your documents must be translated or legalised before your scheduled visit.
+      </p>
+      <p>
+        Applicants must wait for their residence permit decisions in the same country they submitted
+        the application.
+      </p>
+- id: NonEU-K3-A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        Citizens of non-EU countries who plan to come to Finland to work must first secure a job
+        here and apply for a residence permit for employed persons before they enter the country.
+        The employer in question must also complete a form and append it to the residence permit
+        application.
+      </p>
+      <p>
+        If you already have a residence permit for Finland based on some other grounds, such as
+        family ties, you may already have the right to work.
+      </p>
+      <p>
+        A few special permits are granted for specialists, researchers and seasonal work. Consult the
+        Finnish Immigration Service (Migri.fi) for more information.
+      </p>
+      <p>
+        If your stay in Finland will exceed three months, you must also register your municipality of
+        residence at the population register (Dvv.fi) after your arrival. This is true even if you have
+        already been issued a personal identity code along with your residence permit.
+      </p>
+      <p>
+        You will need a tax card from the Tax Administration (Vero.fi), if you plan on working. If
+        you work in construction, you also need a tax number.
+      </p>
+- id: NonEU-K3-C
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        Citizens of non-EU countries who plan on coming to Finland to study must already have been
+        granted a study place before they can apply for a residence permit based on studies.
+      </p>
+      <p>
+        Please note that if your only reason for moving to Finland is to study, you will likely not be
+        eligible for state-supported social benefits, as you will be considered a temporary resident.
+        See the state benefit agency Kela.fi for more information. 
+      </p>
+      <p>
+        You must also register your municipality of residence at the population register (Dvv.fi) upon
+        your arrival. This is true even if you have already been issued a personal identity code along
+        with your residence permit.
+      </p>
+- id: NonEU–K4–A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If you have been granted a residence permit in Finland based on studies, the number of hours
+        you can work per week will be limited. See the Finnish Immigration Service (Migri.fi) for
+        more information.
+      </p>
+      <p>
+        You will need a tax card from the Tax Administration (Vero.fi), if you plan on working.
+      </p>
+- id: NonEU-K5-B
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If a non-EU citizen family member wishes to move to Finland to join you, they must apply
+        for a residence permit from the Finnish Immigration Service (Migri.fi). Applicants must wait
+        for their residence permit decisions in the same country they submitted the application.
+      </p>
+      <p>
+        In most cases, you must also have proof of sufficient funds to support both yourself and your
+        family members in Finland. The required income varies by family size.
+      </p>
+      <p>
+        Please note that as a rule, Finnish law defines family as the nuclear family, so unless you can
+        prove that for example your parents or siblings are solely dependent on your care, they will
+        likely not be granted a residence permit based on this kind of family tie.
+      </p>
+      <p>
+        After your family members have their residence permits, they must then register their
+        municipality of residence at the population register (Dvv.fi). Once they have registered with
+        these two authorities, they will receive personal identity codes. This means they will be
+        considered Helsinki residents and be entitled to municipal services. They will also be eligible
+        to work and study in the same way as other residents of the city.
+      </p>
+- id: NonEU-K7-A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If you are already in Finland, within three months of submitting your application for a
+        residence permit, you must visit the Finnish Immigration Service (Migri.fi) in person to
+        confirm your identity and present original copies of your application appendices. Check if
+        your documents must be translated or otherwise legalised before your scheduled visit.
+      </p>
+- id: NonEU-K7-B
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        You can apply for a residence permit online at EnterFinland.fi, but within three months of
+        submitting the application, you will need to visit a Finnish mission (embassy or consulate) in
+        person to confirm your identity and present original copies of your application appendices.
+        Check if your documents must be translated or legalised before your scheduled visit.
+      </p>
+- id: NonEU–K6–A
+  topic:
+  heading:
+  content:
+    html: >-
+      <p>
+        If you are under the age of 18, you must have written consent from your guardian(s)
+        to move to Finland. A notary or other comparable authority must confirm the
+        document of consent.
+      </p>
+      <p>
+        This proof of consent must be submitted to the Finnish Immigration Service (Migri.fi)
+        when applying for a residence permit.
+      </p>
