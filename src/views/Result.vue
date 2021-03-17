@@ -2,7 +2,7 @@
   <div>
     <InfoBanner>
       <h1>
-        This is your personalised First Steps Checklist! 🎉
+        This is your personalised First Steps Checklist!
       </h1>
       <p>
         The list below outlines the things you will need to take care of after
