@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.component">
-    <InfoBanner v-if="currentQuestionIndex === 0">
+    <InfoBanner v-if="isFirstQuestion">
       <p>
         This is a step by step guide to help you understand the immigration
         process. It also explains which public authorities you need to contact
@@ -15,19 +15,19 @@
     </InfoBanner>
     <div :class="$style.contentContainer">
       <QuestionNumber
-        v-if="currentQuestionIndex > 0"
-        :number="currentQuestionIndex + 1"
+        v-if="!isFirstQuestion"
+        :number="questionIndex + 1"
         :class="$style.questionNumber"
       />
       <QuestionPrompt
-        :prompt="currentQuestion.prompt"
-        :options="currentQuestion.options"
-        @selectOption="onOptionSelected(currentQuestion.id, $event)"
+        :prompt="question.prompt"
+        :options="question.options"
+        @selectOption="$emit('answer', $event)"
       />
       <BackLink
-        v-if="currentQuestionIndex > 0"
+        v-if="!isFirstQuestion"
         :class="$style.backLink"
-        @click.native="currentQuestionIndex--"
+        @click.native="$emit('undo')"
       >
         Previous question
       </BackLink>
@@ -36,42 +36,33 @@
 </template>
 
 <script>
-import {computed, ref} from '@vue/composition-api'
+import {computed} from '@vue/composition-api'
 
 export default {
   props: {
-    questions: {
-      type: Array,
+    question: {
+      type: Object,
       required: true,
-      validator: questions => {
-        return questions.every(question => {
-          if (!question.prompt || !question.options) return false
-          return question.options.every(option => {
-            return !!option.id && !!option.label
-          })
-        })
+      validator: question => {
+        if (!question.id || !question.prompt || !question.options) return false
+        if (!question.options.every(option => {
+          return !!option.id && !!option.label
+        })) return false
+        return true
       }
+    },
+    questionIndex: {
+      type: Number,
+      required: true
     }
   },
-  setup ({questions}, {emit}) {
-    const currentQuestionIndex = ref(0)
-    const currentQuestion = computed(() => {
-      return questions[currentQuestionIndex.value]
+  setup (props, context) {
+    const isFirstQuestion = computed(() => {
+      return props.questionIndex === 0
     })
 
     return {
-      currentQuestion,
-      currentQuestionIndex,
-      onOptionSelected
-    }
-
-    function onOptionSelected (questionId, optionId) {
-      emit('setAnswer', {questionId, optionId})
-      if (currentQuestionIndex.value < questions.length - 1) {
-        currentQuestionIndex.value++
-      } else {
-        emit('finish')
-      }
+      isFirstQuestion
     }
   }
 }
