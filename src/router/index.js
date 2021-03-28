@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '@/views/Home'
-import Result from '@/views/Result'
+import CheckList from '@/views/CheckList'
 
 Vue.use(VueRouter)
 
@@ -13,9 +13,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/result',
-    name: 'Result',
-    component: Result
+    path: '/checklist',
+    name: 'CheckList',
+    component: CheckList
   }
 ]
 

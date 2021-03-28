@@ -18,7 +18,7 @@ import {
 } from '@/assets/configuration.yaml'
 
 export default {
-  name: 'Home',
+  name: 'HomeView',
   setup (props, context) {
     const initialQuestionId = QUESTIONS[0].id
 
@@ -68,7 +68,7 @@ export default {
         // Replace is used so that when navigating back, the second-to-last
         // question is shown instead of being immediately completed.
         context.root.$router.replace({
-          name: 'Result',
+          name: 'CheckList',
           query: {items: checklistItemIds.join(',')}
         })
       }
