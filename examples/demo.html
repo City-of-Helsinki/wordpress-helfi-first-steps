@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<title>Puzzle Demo</title>
+
+<script src="https://unpkg.com/vue"></script>
+<script src="../dist/lib/WelcomeGuide.umd.js" onerror="onResourceError()"></script>
+
+<div id="app"></div>
+
+<style>
+  body > div {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .button {
+    background-color: white;
+    outline: none;
+    color: black;
+    padding: 10px 20px;
+    border: 1px solid black;
+    font-size: 18px;
+  }
+</style>
+
+<script>
+  window.WelcomeGuide.mount({
+    el: '#app',
+    props: {}
+  })
+
+  function onResourceError () {
+    if (document.readyState === 'complete') onError()
+    else window.addEventListener('load', onError)
+    function onError () {
+      document.body.textContent =
+        'A linked resource failed to load. Make sure that you have built the ' +
+        'library and then refresh the page.'
+    }
+  }
+</script>

@@ -1,18 +1,19 @@
-import VueCompositionApi from '@vue/composition-api'
-import Vue from 'vue'
+/* global Vue */
 
 import App from './App'
 import router from '../router'
-import store from '../store'
 
 import '../register-global-components'
 
-Vue.config.productionTip = false
-
-Vue.use(VueCompositionApi)
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+export {App as component}
+export function mount (opts) {
+  new Vue({
+    router,
+    render (createElement) {
+      return createElement(App, {
+        props: opts.props,
+        on: opts.on
+      })
+    }
+  }).$mount(opts.el)
+}
