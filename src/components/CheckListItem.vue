@@ -1,6 +1,6 @@
 <template>
   <div :class="$style.component">
-    <a :class="$style.toggle">
+    <a :class="$style.toggle" v-if="$slots.heading">
       <slot name="heading" />
     </a>
     <div :class="$style.content">

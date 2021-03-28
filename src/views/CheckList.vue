@@ -10,7 +10,10 @@
         you should be ready to go! Welcome to Helsinki!
       </p>
     </InfoBanner>
-    <CheckList :class="$style.checklist" />
+    <CheckList
+      :class="$style.checklist"
+      :items="items"
+    />
     <InfoFooter>
       <h2>
         Any questions? Contact one of Helsinki's helpful services listed below:
@@ -23,7 +26,7 @@
 
         Monday–Friday 9:00–16:00<br/>
 
-        Please note the following exceptions to regular service hours: TE office
+        Please note the following exceptions to regular service hours:   TE office
         desk is closed daily between 12:00–13:00. The Finnish Centre for
         Pensions (ETK) is present at the service point from Monday to Wednesday,
         9:00–12:00 and 13:00–16:00.
@@ -43,8 +46,24 @@
 </template>
 
 <script>
-export default {
+import {computed} from '@vue/composition-api'
 
+import {
+  checklist as CHECKLIST
+} from '@/assets/configuration.yaml'
+
+export default {
+  name: 'CheckListView',
+  setup (_, context) {
+    const items = computed(() => {
+      const itemIdsStr = context.root.$route.query.items
+      const itemIds = itemIdsStr ? itemIdsStr.split(',') : []
+      return CHECKLIST.filter(({id, always}) => always || itemIds.includes(id))
+    })
+    return {
+      items
+    }
+  }
 }
 </script>
 
