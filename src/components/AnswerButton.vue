@@ -17,6 +17,7 @@ export default {
   align-items: center;
   padding: hds.$spacing-s hds.$spacing-m;
   font-weight: bold;
+  text-decoration: none;
   color: hds.$color-white;
   background-color: hds.$color-bus;
   cursor: pointer;

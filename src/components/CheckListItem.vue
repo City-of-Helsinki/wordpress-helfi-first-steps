@@ -17,7 +17,9 @@ export default {
 
 <style module lang="scss">
 .component {
-  margin-bottom: hds.$spacing-m;
+  &:not(:last-child) {
+    margin-bottom: hds.$spacing-m;
+  }
 
   .toggle {
     display: block;
