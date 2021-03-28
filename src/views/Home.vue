@@ -60,8 +60,8 @@ export default {
         for (const [questionId, answerId] of Object.entries(answers.value)) {
           const question = QUESTIONS.find(({id}) => id === questionId)
           const answer = question.options.find(({id}) => id === answerId)
-          if (answer.checklist && answer.checklist.enable) {
-            checklistItemIds.push(...answer.checklist.enable)
+          if (answer.checklist && answer.checklist) {
+            checklistItemIds.push(...answer.checklist)
           }
         }
 
