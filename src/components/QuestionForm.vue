@@ -8,7 +8,7 @@
       </p>
       <p>
         <strong>
-          Using the guide is easy. Just answer 2-4(?) questions and get a handy
+          Using the guide is easy. Just answer 2-7 questions and get a handy
           checklist!
         </strong>
       </p>
