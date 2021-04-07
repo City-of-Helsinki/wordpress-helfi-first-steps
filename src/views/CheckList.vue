@@ -19,12 +19,12 @@
           :items="items"
         />
       </div>
-      <div :class="$style.side">
+      <!-- <div :class="$style.side">
         <h2>Print or save your result</h2>
         <LinkButton :href="pdfUrl" target="_blank">
           Show pdf file
         </LinkButton>
-      </div>
+      </div> -->
     </div>
     <div :class="$style.infoFooterContainer">
       <InfoFooter>
