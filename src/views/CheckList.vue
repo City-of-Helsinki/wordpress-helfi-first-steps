@@ -119,10 +119,10 @@ export default {
 }
 
 .infoBannerContainer {
-  margin-bottom: hds.$spacing-l;
+  margin-bottom: hds.$spacing-2-xs;
 }
 
 .infoFooterContainer {
-  margin-top: hds.$spacing-l;
+  margin-top: hds.$spacing-2-xs;
 }
 </style>
