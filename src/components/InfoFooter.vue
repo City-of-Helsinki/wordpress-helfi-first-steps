@@ -1,6 +1,11 @@
 <template>
   <div :class="$style.component">
-    <slot/>
+    <div :class="$style.content">
+      <KoroBorder color="#e6f4ff" top />
+      <div>
+        <slot/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -12,8 +17,12 @@ export default {
 
 <style module lang="scss">
 .component {
+  padding-top: 50px;
+}
+
+.content {
+  position: relative;
   padding: hds.$spacing-l hds.$spacing-s;
   background-color: hds.$color-coat-of-arms-light;
-  // TODO: koro effect
 }
 </style>

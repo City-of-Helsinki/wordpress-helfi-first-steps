@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div :class="$style.infoBannerContainer">
       <InfoBanner>
         <h1>
           This is your personalised First Steps Checklist!
@@ -10,6 +11,7 @@
           you should be ready to go! Welcome to Helsinki!
         </p>
       </InfoBanner>
+    </div>
     <div :class="$style.content">
       <div :class="$style.main">
         <CheckList
@@ -24,34 +26,36 @@
         </LinkButton>
       </div>
     </div>
-    <InfoFooter>
-      <h2>
-        Any questions? Contact one of Helsinki's helpful services listed below:
-      </h2>
-      <h3>
-        International House Helsinki
-      </h3>
-      <p>
-        Lintulahdenkuja 2 D, 00530 Helsinki<br/>
+    <div :class="$style.infoFooterContainer">
+      <InfoFooter>
+        <h2>
+          Any questions? Contact one of Helsinki's helpful services listed below:
+        </h2>
+        <h3>
+          International House Helsinki
+        </h3>
+        <p>
+          Lintulahdenkuja 2 D, 00530 Helsinki<br/>
 
-        Monday–Friday 9:00–16:00<br/>
+          Monday–Friday 9:00–16:00<br/>
 
-        Please note the following exceptions to regular service hours:   TE office
-        desk is closed daily between 12:00–13:00. The Finnish Centre for
-        Pensions (ETK) is present at the service point from Monday to Wednesday,
-        9:00–12:00 and 13:00–16:00.
-      </p>
-      <h3>
-        Helsinki-info
-      </h3>
-      <p>
-        <strong>Tel</strong> 09 31011 111<br/>
+          Please note the following exceptions to regular service hours:   TE office
+          desk is closed daily between 12:00–13:00. The Finnish Centre for
+          Pensions (ETK) is present at the service point from Monday to Wednesday,
+          9:00–12:00 and 13:00–16:00.
+        </p>
+        <h3>
+          Helsinki-info
+        </h3>
+        <p>
+          <strong>Tel</strong> 09 31011 111<br/>
 
-        <strong>Chat</strong> neuvonta.hel.fi<br/>
+          <strong>Chat</strong> neuvonta.hel.fi<br/>
 
-        <strong>Service point</strong> IHH and Oodi
-      </p>
-    </InfoFooter>
+          <strong>Service point</strong> IHH and Oodi
+        </p>
+      </InfoFooter>
+    </div>
   </div>
 </template>
 
@@ -117,5 +121,13 @@ export default {
       margin-left: hds.$spacing-l;
     }
   }
+}
+
+.infoBannerContainer {
+  margin-bottom: hds.$spacing-l;
+}
+
+.infoFooterContainer {
+  margin-top: hds.$spacing-l;
 }
 </style>

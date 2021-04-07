@@ -1,18 +1,20 @@
 <template>
   <div :class="$style.component">
-    <InfoBanner v-if="isFirstQuestion">
-      <p>
-        This is a step by step guide to help you understand the immigration
-        process. It also explains which public authorities you need to contact
-        before and/or upon your arrival.
-      </p>
-      <p>
-        <strong>
-          Using the guide is easy. Just answer 2-7 questions and get a handy
-          checklist!
-        </strong>
-      </p>
-    </InfoBanner>
+    <div :class="$style.infoBannerContainer">
+      <InfoBanner v-if="isFirstQuestion">
+        <p>
+          This is a step by step guide to help you understand the immigration
+          process. It also explains which public authorities you need to contact
+          before and/or upon your arrival.
+        </p>
+        <p>
+          <strong>
+            Using the guide is easy. Just answer 2-7 questions and get a handy
+            checklist!
+          </strong>
+        </p>
+      </InfoBanner>
+    </div>
     <div :class="$style.contentContainer">
       <QuestionNumber
         v-if="!isFirstQuestion"
@@ -74,12 +76,24 @@ export default {
     padding: hds.$spacing-s hds.$spacing-s;
   }
 
+  .infoBannerContainer {
+    margin-bottom: hds.$spacing-l;
+  }
+
   .questionNumber {
     margin-bottom: hds.$spacing-5-xl;
+
+    @media (max-width: hds.$breakpoint-m) {
+      margin-bottom: 2 * hds.$spacing-5-xl;
+    }
   }
 
   .backLink {
     margin-top: hds.$spacing-5-xl;
+
+    @media (max-width: hds.$breakpoint-m) {
+      margin-top: 2 * hds.$spacing-5-xl;
+    }
   }
 }
 </style>

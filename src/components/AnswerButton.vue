@@ -35,5 +35,9 @@ export default {
   &:hover .icon {
     transform: translateX(5px);
   }
+
+  &:hover {
+    background-color: hds.$color-bus;
+  }
 }
 </style>

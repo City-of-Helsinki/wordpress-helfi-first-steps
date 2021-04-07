@@ -20,5 +20,10 @@ export default {
   text-decoration: none;
   color: hds.$color-bus;
   cursor: pointer;
+
+  &:hover {
+    background-color: hds.$color-bus;
+    color: hds.$color-white;
+  }
 }
 </style>

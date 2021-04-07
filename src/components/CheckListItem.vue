@@ -1,8 +1,8 @@
 <template>
   <div :class="$style.component">
-    <a :class="$style.toggle" v-if="$slots.heading">
+    <h3 :class="$style.toggle" v-if="$slots.heading">
       <slot name="heading" />
-    </a>
+    </h3>
     <div :class="$style.content">
       <slot/>
     </div>
@@ -22,9 +22,9 @@ export default {
   }
 
   .toggle {
+    margin-bottom: 0;
     display: block;
     padding: hds.$spacing-m;
-    font-size: hds.$fontsize-heading-s;
     font-weight: bold;
     background-color: hds.$color-coat-of-arms-medium-light;
   }

@@ -1,21 +1,11 @@
 <template>
   <div :class="$style.component">
-    <img :src="$options.logoUrl" :class="$style.logo" />
+    <HelsinkiLogo :class="$style.logo" />
     <div :class="$style.title">
       First Steps Checklist
     </div>
   </div>
 </template>
-
-<script>
-import logoUrl from '@/assets/images/helsinki-fi.svg'
-
-// TODO: use inline svg for logo and remove filter
-
-export default {
-  logoUrl
-}
-</script>
 
 <style module lang="scss">
 .component {
