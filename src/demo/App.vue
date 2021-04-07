@@ -5,16 +5,6 @@
   </div>
 </template>
 
-<script>
-import TopBar from '@/components/TopBar'
-
-export default {
-  components: {
-    TopBar
-  }
-}
-</script>
-
 <style module lang="scss">
 .app {
   @import '~@/styles/global';

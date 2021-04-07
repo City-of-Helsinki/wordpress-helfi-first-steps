@@ -62,8 +62,6 @@
 <script>
 import {computed} from '@vue/composition-api'
 
-import LinkButton from '@/components/LinkButton'
-
 import {
   checklist as CHECKLIST
 } from '@/assets/configuration.yaml'
@@ -85,9 +83,6 @@ export default {
       items,
       pdfUrl
     }
-  },
-  components: {
-    LinkButton
   }
 }
 </script>
