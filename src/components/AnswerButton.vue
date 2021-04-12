@@ -12,6 +12,9 @@ export default {
 </script>
 
 <style module lang="scss">
+@use '~hds-core/lib/icons/icon';
+@use '~hds-core/lib/icons/ui/icon-arrow-right';
+
 .component {
   display: flex;
   align-items: center;

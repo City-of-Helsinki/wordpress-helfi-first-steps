@@ -6,8 +6,6 @@ module.exports = {
       sass: {
         prependData: `
           @use '~hds-design-tokens/lib/all' as hds;
-          @use '~hds-core/lib/icons/all';
-          @use '~hds-core/lib/icons/icon';
           @use '~@/styles/variables' as variables;
           @use '~sass-mq/mq';
         `
