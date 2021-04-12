@@ -1,0 +1,13 @@
+{
+  "name": "pdf-generator",
+  "version": "0.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "main": "index.js",
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "html-pdf": "^2.2.0",
+    "js-yaml": "^4.0.0",
+    "short-hash": "^1.0.0"
+  }
+}

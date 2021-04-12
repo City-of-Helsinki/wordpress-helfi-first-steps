@@ -19,12 +19,12 @@
           :items="items"
         />
       </div>
-      <!-- <div :class="$style.side">
+      <div :class="$style.side">
         <h2>Print or save your result</h2>
         <LinkButton :href="pdfUrl" target="_blank">
           Show pdf file
         </LinkButton>
-      </div> -->
+      </div>
     </div>
     <div :class="$style.infoFooterContainer">
       <InfoFooter>
@@ -60,7 +60,8 @@
 </template>
 
 <script>
-import {computed} from '@vue/composition-api'
+import {computed, inject} from '@vue/composition-api'
+import shortHash from 'short-hash'
 
 import {
   checklist as CHECKLIST
@@ -69,6 +70,11 @@ import {
 export default {
   name: 'CheckListView',
   setup (_, context) {
+    const {
+      pdfBaseUrl
+    } = inject('appOptions', {
+      pdfBaseUrl: ''
+    })
     const items = computed(() => {
       const itemIdsStr = context.root.$route.query.items
       const itemIds = itemIdsStr ? itemIdsStr.split(',') : []
@@ -77,7 +83,8 @@ export default {
     const pdfUrl = computed(() => {
       const itemIdsStr = context.root.$route.query.items
       const itemIds = itemIdsStr ? itemIdsStr.split(',').sort() : []
-      return `/first-steps-checklist-${itemIds.join('-')}.pdf`
+      const itemIdHash = shortHash(itemIds.sort().join('-'))
+      return `${pdfBaseUrl}/first-steps-checklist-${itemIdHash}.pdf`
     })
     return {
       items,
