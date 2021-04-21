@@ -5,7 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build:demo": "vue-cli-service build --dest dist/demo",
-    "build:lib": "vue-cli-service build --target lib --name WelcomeGuide --dest dist/lib src/lib/main.js",
+    "build:lib": "vue-cli-service build --target lib --name WelcomeGuide --dest dist/lib src/lib/main.js --inline-vue",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
