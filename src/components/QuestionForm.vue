@@ -3,15 +3,19 @@
     <div :class="$style.infoBannerContainer">
       <InfoBanner v-if="isFirstQuestion">
         <p>
-          This is a step by step guide to help you understand the immigration
-          process. It also explains which public authorities you need to contact
-          before and/or upon your arrival.
+          The First Steps Checklist is a personalised list of the first steps
+          you need to take in association with your move to Finland.
         </p>
         <p>
-          <strong>
-            Using the guide is easy. Just answer 2-7 questions and get a handy
-            checklist!
-          </strong>
+          Each list has about a dozen steps. The first few focus on the
+          necessary permits and registration for your specific situation. The
+          others contain information on important steps like opening a bank
+          account, buying home insurance and using healthcare.
+        </p>
+        <p>
+          Start by answering the questions below. When you are finished, you
+          will be able to save your personalised list as a PDF file or print it
+          out.
         </p>
       </InfoBanner>
     </div>
