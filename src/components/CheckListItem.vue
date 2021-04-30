@@ -17,6 +17,21 @@ export default {
 
 <style module lang="scss">
 .component {
+  position: relative;
+  padding-left: calc(#{hds.$spacing-l + hds.$spacing-s} + #{2 * 2}px);
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: #{(72 - 32 - 4) / 2}px;
+    width: hds.$spacing-l;
+    height: hds.$spacing-l;
+    border: 2px solid black;
+    float: left;
+  }
+
   &:not(:last-child) {
     margin-bottom: hds.$spacing-m;
   }
