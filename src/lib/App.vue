@@ -10,11 +10,15 @@ import {provide} from '@vue/composition-api'
 
 export default {
   props: {
-    pdfBaseUrl: {type: String, required: false, default: undefined}
+    pdfBaseUrl: {type: String, required: false, default: undefined},
+    emailBaseUrl: {type: String, required: false, default: undefined},
+    emailQueryKey: {type: String, required: false, default: undefined}
   },
   setup (props) {
     provide('appOptions', {
-      pdfBaseUrl: props.pdfBaseUrl
+      pdfBaseUrl: props.pdfBaseUrl,
+      emailBaseUrl: props.emailBaseUrl,
+      emailQueryKey: props.emailQueryKey
     })
   }
 }

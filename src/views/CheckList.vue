@@ -20,9 +20,12 @@
         />
       </div>
       <div :class="$style.side">
-        <h2>Print or save your result</h2>
-        <LinkButton :href="pdfUrl" target="_blank">
+        <h2 v-if="pdfUrl || emailUrl">Print or save your result</h2>
+        <LinkButton v-if="pdfUrl" :href="pdfUrl" target="_blank">
           Show pdf file
+        </LinkButton>
+        <LinkButton v-if="emailUrl" :href="emailUrl" target="_blank">
+          Send via email
         </LinkButton>
       </div>
     </div>
@@ -70,10 +73,20 @@ import {
 export default {
   name: 'CheckListView',
   setup (_, context) {
+    const itemIdHash = computed(() => {
+      const itemIdsStr = context.root.$route.query.items
+      const itemIds = itemIdsStr ? itemIdsStr.split(',').sort() : []
+      const itemIdHash = shortHash(itemIds.sort().join('-'))
+      return itemIdHash
+    })
     const {
-      pdfBaseUrl
+      pdfBaseUrl,
+      emailBaseUrl,
+      emailQueryKey
     } = inject('appOptions', {
-      pdfBaseUrl: ''
+      pdfBaseUrl: undefined,
+      emailBaseUrl: undefined,
+      emailQueryKey: undefined
     })
     const items = computed(() => {
       const itemIdsStr = context.root.$route.query.items
@@ -81,14 +94,17 @@ export default {
       return CHECKLIST.filter(({id, always}) => always || itemIds.includes(id))
     })
     const pdfUrl = computed(() => {
-      const itemIdsStr = context.root.$route.query.items
-      const itemIds = itemIdsStr ? itemIdsStr.split(',').sort() : []
-      const itemIdHash = shortHash(itemIds.sort().join('-'))
-      return `${pdfBaseUrl}/first-steps-checklist-${itemIdHash}.pdf`
+      if (!pdfBaseUrl) return
+      return `${pdfBaseUrl}/first-steps-checklist-${itemIdHash.value}.pdf`
+    })
+    const emailUrl = computed(() => {
+      if (!emailBaseUrl || !emailQueryKey) return
+      return `${emailBaseUrl}?${emailQueryKey}=${itemIdHash.value}`
     })
     return {
       items,
-      pdfUrl
+      pdfUrl,
+      emailUrl
     }
   }
 }
@@ -118,9 +134,27 @@ export default {
     flex-grow: 0;
     flex-shrink: 0;
 
+    > a {
+      margin-right: hds.$spacing-2-xs;
+    }
+
     @include mq.mq($from: hds.$breakpoint-l) {
       text-align: right;
       margin-left: hds.$spacing-l;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+
+      > a {
+        box-sizing: border-box;
+        margin-right: 0;
+        min-width: 150px;
+        text-align: center;
+      }
+      > a + a {
+        margin-top: hds.$spacing-2-xs;
+      }
     }
   }
 }

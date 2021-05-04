@@ -51,7 +51,11 @@
 <script>
   window.WelcomeGuide.mount({
     el: '#app',
-    props: {}
+    props: {
+      pdfBaseUrl: '/pdf-base',
+      emailBaseUrl: '/email-base',
+      emailQueryKey: 'answers'
+    }
   })
 
   function onResourceError () {

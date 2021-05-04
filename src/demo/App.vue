@@ -5,6 +5,20 @@
   </div>
 </template>
 
+<script>
+import {provide} from '@vue/composition-api'
+
+export default {
+  setup (props) {
+    provide('appOptions', {
+      pdfBaseUrl: '/pdf-base',
+      emailBaseUrl: '/email-base',
+      emailQueryKey: 'answers'
+    })
+  }
+}
+</script>
+
 <style module lang="scss">
 .app {
   @import '~@/styles/global';
