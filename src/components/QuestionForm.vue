@@ -3,19 +3,12 @@
     <div :class="$style.infoBannerContainer">
       <InfoBanner v-if="isFirstQuestion">
         <p>
-          The First Steps Checklist is a personalised list of the first steps
-          you need to take in association with your move to Finland.
+          The First Steps Checklist is a personalised list of the first steps you need to take, from
+          registration to tasks associated with setting up your daily life.
         </p>
         <p>
-          Each list has about a dozen steps. The first few focus on the
-          necessary permits and registration for your specific situation. The
-          others contain information on important steps like opening a bank
-          account, buying home insurance and using healthcare.
-        </p>
-        <p>
-          Start by answering the questions below. When you are finished, you
-          will be able to save your personalised list as a PDF file or print it
-          out.
+          Start by answering the questions below. You will be able to save the list as a PDF file when
+          you are finished.
         </p>
       </InfoBanner>
     </div>

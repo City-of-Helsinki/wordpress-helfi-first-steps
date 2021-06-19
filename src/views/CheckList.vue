@@ -3,12 +3,11 @@
     <div :class="$style.infoBannerContainer">
       <InfoBanner>
         <h1>
-          This is your personalised First Steps Checklist!
+          Your personalised First Steps Checklist
         </h1>
         <p>
-          The list below outlines the things you will need to take care of after
-          your arrival in Helsinki. Once you've got these things taken care of,
-          you should be ready to go! Welcome to Helsinki!
+          The list below outlines the things you will need to take care of once you have arrived in
+          Helsinki. Welcome! We hope you enjoy your stay.
         </p>
       </InfoBanner>
     </div>
@@ -32,30 +31,25 @@
     <div :class="$style.infoFooterContainer">
       <InfoFooter>
         <h2>
-          Any questions? Contact one of Helsinki's helpful services listed below:
+          Any questions?
         </h2>
         <h3>
-          International House Helsinki
+          <a target="_blank" href="https://ihhelsinki.fi/">International House Helsinki</a>
         </h3>
         <p>
           Lintulahdenkuja 2 D, 00530 Helsinki<br/>
-
-          Monday–Friday 9:00–16:00<br/>
-
-          Please note the following exceptions to regular service hours:   TE office
-          desk is closed daily between 12:00–13:00. The Finnish Centre for
-          Pensions (ETK) is present at the service point from Monday to Wednesday,
-          9:00–12:00 and 13:00–16:00.
+          Mon–Fri 9-16
         </p>
         <h3>
-          Helsinki-info
+          <a target="_blank" href="Helsinki-info">Helsinki-info</a>
         </h3>
         <p>
-          <strong>Tel</strong> 09 31011 111<br/>
+          Tel. +358 9 31011 111 and <a target="_blank"
+          href="https://www.hel.fi/kanslia/neuvonta-en/">chat</a><br/>
 
-          <strong>Chat</strong> neuvonta.hel.fi<br/>
+          Mon–Thu 9–16, Fri 10–15<br/>
 
-          <strong>Service point</strong> IHH and Oodi
+          Service points: International House Helsinki and Central Library Oodi
         </p>
       </InfoFooter>
     </div>

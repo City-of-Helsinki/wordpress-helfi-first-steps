@@ -58,7 +58,7 @@ questions:
     next: EU-K6
     checklist: []
   - id: EU-K5-B
-    label: With Family
+    label: With family
     next: EU-K6
     checklist: [EU-K5-B]
 - id: EU-K6
@@ -328,7 +328,7 @@ checklist:
       </p>
 - id: EU-K5-B
   topic: null
-  heading: With Family
+  heading: With family
   content:
     html: >-
       <p>
@@ -344,7 +344,7 @@ checklist:
         If your family members are citizens of non-EU countries and they meet
         the requirements set by the Finnish Immigration Service, they can apply
         for a Residence card for a family member of an EU citizen. See <a target="_blank"
-        href="https://www.vero.fi/en/individuals/tax-cards-and-tax-returns/tax_card/">Migri.fi</a>
+        href="https://migri.fi/en/residence-card-for-family-members">Migri.fi</a>
         for more information.
       </p>
 
@@ -431,7 +431,8 @@ checklist:
       <p>
         Once the Finnish Immigration Service has granted you a residence permit
         and you have moved to Finland, you must register your municipality of
-        residence with the population register (Dvv.fi). You will then be
+        residence with the population register (<a target="_blank"
+        href="https://dvv.fi/en/foreigner-">Dvv.fi</a>). You will then be
         assigned a Finnish personal identity code. This means you will be
         considered a Helsinki resident and be entitled to municipal services.
       </p>
@@ -500,8 +501,9 @@ checklist:
 
       <p>
         You must register your municipality of residence at the population
-        register (<a target="_blank" href="https://dvv.fi/en/foreigner-registration">Dvv.fi</a>)
-        upon your arrival.
+        register (<a target="_blank"
+        href="https://dvv.fi/en/foreigner-registration">Dvv.fi</a>) upon your
+        arrival.
       </p>
 - id: NonEU-K4-A
   topic: null
@@ -778,10 +780,14 @@ checklist:
         href="https://www.kela.fi/web/en/-/eligibility-for-kela-benefits-is-based-on-the-same-criteria-for-everyone#:~:text=10%2F09%2F2015-,Eligibility%20for%20Kela%20benefits%20is%20based%20on%20the%20same%20criteria,reception%20programme%20for%20asylum%20seekers.">eligible
         for national health insurance</a> in Finland, you will be issued a Kela
         card. You can also apply for it yourself from the state benefits agency
-        (<a target="_blank" href="https://www.kela.fi/web/en/kela-card">Kela.fi</a>). You will
-        need to show this card to receive state-supported healthcare and
-        subsidies. Each Kela benefit must be applied for separately, and
-        decisions are made on a case-by-case basis.
+        (<a target="_blank"
+        href="https://www.kela.fi/web/en/kela-card">Kela.fi</a>). You will need
+        to show this card to receive state-supported healthcare and subsidies.
+        Each Kela benefit must be applied for separately, and decisions are made
+        on a case-by-case basis. Find a step-by-step guide to using Helsinki’s
+        health services in the welcome.helsinki section <a target="_blank"
+        href="https://welcome.helsinki/how-do-health-services-in-helsinki-work/">Healthcare
+        and social services</a>.
       </p>
 - id: GENERAL-7
   always: true
@@ -811,7 +817,7 @@ checklist:
         licenses issued by other countries will need to pass a Finnish driving
         exam if they do not exchange their license by the deadline. See more at
         <a target="_blank"
-        href="https://ajokortti-info.fi/en/basic-information-about-a-driving-licence/exchanging-a-foreign-driving-licence-for-a-finnish-licence">Ajokortti-info.fi</a>.
+        href="https://ajokortti-info.fi/en/basic-information-about-driving-licence/exchanging-foreign-driving-licence-finnish-licence">Ajokortti-info.fi</a>.
       </p>
 - id: GENERAL-9
   always: true
@@ -833,10 +839,17 @@ checklist:
   content:
     html: >-
       <p>
-        Once you have settled in, remember to take some time to get to know
-        Helsinki’s different neighbourhoods. <a target="_blank"
-        href="https://www.myhelsinki.fi/en">MyHelsinki</a> is great source of
-        ideas for fun things to see and do!
+        Once you have settled in, take some time to get to know Helsinki’s
+        different neighbourhoods. See the welcome.helsinki sections <a
+        target="_blank"
+        href="https://welcome.helsinki/about-the-city-of-helsinki/">About the
+        city</a>, <a target="_blank"
+        href="https://welcome.helsinki/nature-at-your-doorstep/">Nature</a>, and
+        <a target="_blank"
+        href="https://welcome.helsinki/free-time-in-helsinki/">Free-time
+        activities</a> and the <a target="_blank"
+        href="https://www.myhelsinki.fi/en/your-local-guide-to-helsinki">MyHelsinki
+        website</a> for city info and fun things to see and do!
       </p>
 - id: GENERAL-11
   always: true
@@ -846,7 +859,5 @@ checklist:
     html: >-
       <p>
         Congratulations! You have now finished all the steps and are ready to
-        start your Helsinki adventure. Remember to visit the <a target="_blank"
-        href="https://welcome.helsinki/">welcome.helsinki</a> website, if you
-        have any more questions.
+        start your Helsinki adventure.
       </p>
