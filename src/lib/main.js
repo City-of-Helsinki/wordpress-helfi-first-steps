@@ -14,10 +14,7 @@ export function mount (opts) {
     render (createElement) {
       return createElement(App, {
         props: opts.props,
-        on: opts.on,
-        pdfBaseUrl: opts.pdfBaseUrl,
-        emailBaseUrl: opts.emailBaseUrl,
-        emailQueryKey: opts.emailQueryKey
+        on: opts.on
       })
     }
   }).$mount(opts.el)

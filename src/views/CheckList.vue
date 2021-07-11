@@ -60,10 +60,6 @@
 import {computed, inject} from '@vue/composition-api'
 import shortHash from 'short-hash'
 
-import {
-  checklist as CHECKLIST
-} from '@/assets/configuration.yaml'
-
 export default {
   name: 'CheckListView',
   setup (_, context) {
@@ -76,7 +72,8 @@ export default {
     const {
       pdfBaseUrl,
       emailBaseUrl,
-      emailQueryKey
+      emailQueryKey,
+      checklist
     } = inject('appOptions', {
       pdfBaseUrl: undefined,
       emailBaseUrl: undefined,
@@ -85,7 +82,7 @@ export default {
     const items = computed(() => {
       const itemIdsStr = context.root.$route.query.items
       const itemIds = itemIdsStr ? itemIdsStr.split(',') : []
-      return CHECKLIST.filter(({id, always}) => always || itemIds.includes(id))
+      return checklist.filter(({id, always}) => always || itemIds.includes(id))
     })
     const pdfUrl = computed(() => {
       if (!pdfBaseUrl) return

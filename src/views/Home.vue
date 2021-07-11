@@ -11,16 +11,13 @@
 </template>
 
 <script>
-import {computed, ref, watch} from '@vue/composition-api'
-
-import {
-  questions as QUESTIONS
-} from '@/assets/configuration.yaml'
+import {computed, inject, ref, watch} from '@vue/composition-api'
 
 export default {
   name: 'HomeView',
   setup (props, context) {
-    const initialQuestionId = QUESTIONS[0].id
+    const {questions} = inject('appOptions')
+    const initialQuestionId = questions[0].id
 
     const answers = computed(() => {
       return context.root.$route.query
@@ -32,14 +29,14 @@ export default {
     })
     const currentQuestion = computed(() => {
       if (!currentQuestionId.value) return
-      return QUESTIONS.find(({id}) => id === currentQuestionId.value)
+      return questions.find(({id}) => id === currentQuestionId.value)
     })
 
     // Update current question id when answers change
     watch(() => answers.value, answers => {
       let newQuestionId = initialQuestionId
       while (newQuestionId && answers[newQuestionId]) {
-        const question = QUESTIONS.find(
+        const question = questions.find(
           ({id}) => id === newQuestionId
         )
         const answer = question.options.find(
@@ -58,7 +55,7 @@ export default {
       if (!currentQuestionId) {
         const checklistItemIds = []
         for (const [questionId, answerId] of Object.entries(answers.value)) {
-          const question = QUESTIONS.find(({id}) => id === questionId)
+          const question = questions.find(({id}) => id === questionId)
           const answer = question.options.find(({id}) => id === answerId)
           if (answer.checklist && answer.checklist) {
             checklistItemIds.push(...answer.checklist)

@@ -4,17 +4,30 @@ const pdf = require('html-pdf')
 const yaml = require('js-yaml')
 const path = require('path')
 const shortHash = require('short-hash')
+const yargs = require('yargs')
 
 const HTML_DIST_DIR = path.resolve(__dirname, '../dist/html')
 const PDF_DIST_DIR = path.resolve(__dirname, '../dist/pdf')
+
+const argv = yargs(process.argv.slice(2)).argv
+
+if (!argv.configurationPath) throw new Error('You must specify --configuration-path')
+if (!argv.configurationFormat) throw new Error('You must specify --configuration-format (either "json" or "yaml")')
+if (!['json', 'yaml'].includes(argv.configurationFormat)) throw new Error(`Unknown configuration format ${argv.configurationFormat}`)
 
 const template = Handlebars.compile(fs.readFileSync(
   path.resolve(__dirname, './template.html'), 'utf-8'
 ))
 
-const {checklist, questions} = yaml.load(fs.readFileSync(
-  path.resolve(__dirname, '../src/assets/configuration.yaml'), 'utf-8'
-))
+const configurationStr = fs.readFileSync(path.resolve(argv.configurationPath), 'utf-8')
+
+const configuration = (
+  argv.configurationFormat === 'yaml' ? yaml.load(configurationStr)
+    : argv.configurationFormat === 'json' ? JSON.parse(configurationStr)
+      : undefined
+)
+
+const {checklist, questions} = configuration
 
 const combinations = getCombinations(questions)
 

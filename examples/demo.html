@@ -54,7 +54,37 @@
     props: {
       pdfBaseUrl: '/pdf-base',
       emailBaseUrl: '/email-base',
-      emailQueryKey: 'answers'
+      emailQueryKey: 'answers',
+      questions: [{
+        id: 'question-1',
+        prompt: 'Choose A or B',
+        options: [{
+          id: '1-A',
+          label: 'Option A',
+          next: null,
+          checklist: ['1-A']
+        }, {
+          id: '1-B',
+          label: 'Option B',
+          next: null,
+          checklist: ['1-B']
+        }]
+      }],
+      checklist: [{
+        id: '1-A',
+        topic: 'Questions',
+        heading: 'Option A',
+        content: {
+          html: '<p>You chose option A. Good choice!</p>'
+        }
+      }, {
+        id: '1-B',
+        topic: 'Questions',
+        heading: 'Option B',
+        content: {
+          html: '<p>You chose option A. Good choice!</p>'
+        }
+      }]
     }
   })
 

@@ -8,12 +8,16 @@
 <script>
 import {provide} from '@vue/composition-api'
 
+import {questions, checklist} from '@demo/configuration.yaml'
+
 export default {
   setup (props) {
     provide('appOptions', {
       pdfBaseUrl: '/pdf-base',
       emailBaseUrl: '/email-base',
-      emailQueryKey: 'answers'
+      emailQueryKey: 'answers',
+      questions,
+      checklist
     })
   }
 }
