@@ -1,8 +1,8 @@
 <template>
-  <a :class="$style.component">
+  <button :class="$style.component">
     <slot/>
     <span :class="$style.icon" />
-  </a>
+  </button>
 </template>
 
 <script>
@@ -24,6 +24,10 @@ export default {
   color: hds.$color-white;
   background-color: hds.$color-bus;
   cursor: pointer;
+  // Reset button styles
+  appearance: none;
+  text-transform: none;
+  border: 0;
 
   .icon {
     @extend .hds-icon;

@@ -1,7 +1,7 @@
 <template>
-  <a :class="$style.component">
+  <button :class="$style.component">
     <slot/>
-  </a>
+  </button>
 </template>
 
 <script>
@@ -20,6 +20,10 @@ export default {
   text-decoration: none;
   color: hds.$color-bus;
   cursor: pointer;
+  // Reset button styles
+  appearance: none;
+  background-color: transparent;
+  text-transform: none;
 
   &:hover {
     background-color: hds.$color-bus;
