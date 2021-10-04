@@ -1,5 +1,7 @@
 <template>
   <div>
+    <a ref="topAnchor" tabindex="-1"></a>
+
     <div :class="$style.infoBannerContainer">
       <InfoBanner>
         <h1>
@@ -57,12 +59,13 @@
 </template>
 
 <script>
-import {computed, inject} from '@vue/composition-api'
+import {computed, inject, ref, onMounted} from '@vue/composition-api'
 import shortHash from 'short-hash'
 
 export default {
   name: 'CheckListView',
   setup (_, context) {
+    const topAnchor = ref(null)
     const itemIdHash = computed(() => {
       const itemIdsStr = context.root.$route.query.items
       const itemIds = itemIdsStr ? itemIdsStr.split(',').sort() : []
@@ -92,7 +95,13 @@ export default {
       if (!emailBaseUrl || !emailQueryKey) return
       return `${emailBaseUrl}?${emailQueryKey}=${itemIdHash.value}`
     })
+
+    onMounted(() => {
+      topAnchor.value.focus()
+    })
+
     return {
+      topAnchor,
       items,
       pdfUrl,
       emailUrl

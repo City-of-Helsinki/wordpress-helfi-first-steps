@@ -1,5 +1,7 @@
 <template>
   <div>
+    <a ref="topAnchor" tabindex="-1"></a>
+
     <QuestionForm
       v-if="currentQuestion"
       :question="currentQuestion"
@@ -16,6 +18,8 @@ import {computed, inject, ref, watch} from '@vue/composition-api'
 export default {
   name: 'HomeView',
   setup (props, context) {
+    const topAnchor = ref(null)
+
     const {questions} = inject('appOptions')
     const initialQuestionId = questions[0].id
 
@@ -74,6 +78,7 @@ export default {
     })
 
     return {
+      topAnchor,
       currentQuestionId,
       currentQuestion,
       currentQuestionIndex,
@@ -89,11 +94,14 @@ export default {
             [currentQuestionId.value]: answerId
           }
         })
+
+        topAnchor.value.focus()
       }
     }
 
     function onUndo () {
       context.root.$router.go(-1)
+      topAnchor.value.focus()
     }
   }
 }
