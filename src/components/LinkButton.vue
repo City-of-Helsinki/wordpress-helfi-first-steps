@@ -29,5 +29,10 @@ export default {
     background-color: hds.$color-bus;
     color: hds.$color-white;
   }
+
+  &:focus-visible {
+    outline: solid 3px hds.$color-bus;
+    outline-offset: 2px;
+  }
 }
 </style>

@@ -46,5 +46,10 @@ export default {
   &:hover {
     background-color: hds.$color-bus;
   }
+
+  &:focus-visible {
+    outline: solid 3px hds.$color-bus;
+    outline-offset: 2px;
+  }
 }
 </style>
