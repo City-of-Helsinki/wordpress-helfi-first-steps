@@ -134,7 +134,7 @@ export default {
     flex-grow: 0;
     flex-shrink: 0;
 
-    > button {
+    > a {
       margin-right: hds.$spacing-2-xs;
     }
 
@@ -146,13 +146,13 @@ export default {
       flex-direction: column;
       align-items: flex-end;
 
-      > button {
+      > a {
         box-sizing: border-box;
         margin-right: 0;
         min-width: 150px;
         text-align: center;
       }
-      > button + button {
+      > a + a {
         margin-top: hds.$spacing-2-xs;
       }
     }
