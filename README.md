@@ -1,29 +1,37 @@
 # Welcome guide
 
-## Project setup
+## App
+
+Setup:
 
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Develop:
 
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+Build:
 
 ```
-npm run build
+npm run build:lib
 ```
 
-### Lints and fixes files
+## PDF generator
+
+Setup:
 
 ```
-npm run lint
+cd pdf-generator
+npm install
 ```
 
-### Customize configuration
+Generate files:
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```
+cd pdf-generator
+node index.js --configuration-path ../src/demo/configuration.yaml --configuration-format yaml
+```
